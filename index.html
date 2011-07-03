@@ -14,6 +14,7 @@
 
   <body>
 
+    <!-- handlebars template -->
     <script id="note-template" type="text/x-handlebars-template">
     {{#each notes}}
       <li class="note">
@@ -22,12 +23,13 @@
       </li>
     {{/each}}
     </script>
+    <!-- end -->
 
     <div id="wrapper">
       
       <h1 id="page-title">Notes</h1>
       
-      <ul id="note-collection"></ul>
+      <ul id="note-collection"><!-- #note-template goes here --></ul>
       
       <form id="note-entry">
         <input type="text" id="title-entry" />
