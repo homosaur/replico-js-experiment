@@ -3,23 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Note Entry Mockup</title>
-
-    <script src="frameworks/jquery-1.6.2.js"></script>
-    <script src="frameworks/handlebars-1.0.0.beta.3.js"></script>
+    
+    <!-- IE HTML5 shim -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- css -->
+    <link rel="stylesheet" href="css/less.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/app.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/notes.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/typography.css" type="text/css" media="screen"  charset="utf-8">
+    
+    <!-- javascript frameworks -->
+    <script src="frameworks/handlebars-1.0.0.beta.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="frameworks/jquery-1.6.2.js" type="text/javascript" charset="utf-8"></script>
+    
     
     <!-- application scripts -->
-    <script src="src/note.js"></script>
-    <script src="src/app.js"></script>
+    <script src="src/app.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/note.js" type="text/javascript" charset="utf-8"></script>
+    
   </head>
 
   <body>
 
     <!-- handlebars template -->
     <script id="note-template" type="text/x-handlebars-template">
-      <li class="note">
-        <span class="note-title">{{title}}</span>
-        <span class="note-body">{{body}}</span>
-      </li>
+    {{#each notes}}
+      <div class="note">
+        <h3 class="note-title">{{title}}</h3>
+        <div class="note-body">{{body}}</div>
+      </div>
+    {{/each}}
     </script>
     <!-- end -->
 
@@ -27,11 +43,11 @@
       
       <h1 id="page-title">Notes</h1>
       
-      <ul id="note-collection"><!-- #note-template goes here --></ul>
+      <div id="note-collection"><!-- #note-template goes here --></div>
       
       <form id="note-entry">
-        <input type="text" id="title-entry" />
-        <input type="textarea" id="body-entry" />
+        <p>Note Title: <input type="text" id="title-entry" size="50" /></p>
+        <p>Note Body: <textarea id="body-entry" cols="50" rows="10"></textarea></p>
         <input type="submit" value="submit note" />
       </form>
       

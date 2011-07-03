@@ -5,3 +5,11 @@ window.Note = class Note
     title: @title
     body: @body
     
+window.NoteCollection = class NoteCollection
+  constructor: ->
+    @notes = []
+    
+  add: (notes...) -> @notes.push notes...
+  
+  toJSON: ->
+    notes: note.toJSON() for note in @notes

@@ -1,6 +1,7 @@
 jQuery ->
-  source    = ($ '#note-template').html()
-  template  = Handlebars.compile source
+  note_collection = new NoteCollection
+  source          = ($ '#note-template').html()
+  template        = Handlebars.compile source
   
   ($ '#title-entry').focus()
   
@@ -10,9 +11,9 @@ jQuery ->
     title = ($ '#title-entry').val()
     body = ($ '#body-entry').val()
     note = new Note(title, body)
+    note_collection.add note
     
-    ($ 'ul#note-collection').html template note.toJSON()
+    ($ 'div#note-collection').html template note_collection.toJSON()
     
-    ($ '#title-entry').val('')
+    ($ '#title-entry').val('').focus()
     ($ '#body-entry').val('')
-    
