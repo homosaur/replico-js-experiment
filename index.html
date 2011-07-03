@@ -16,12 +16,10 @@
 
     <!-- handlebars template -->
     <script id="note-template" type="text/x-handlebars-template">
-    {{#each notes}}
       <li class="note">
         <span class="note-title">{{title}}</span>
         <span class="note-body">{{body}}</span>
       </li>
-    {{/each}}
     </script>
     <!-- end -->
 
@@ -33,7 +31,7 @@
       
       <form id="note-entry">
         <input type="text" id="title-entry" />
-        <input type="text" id="body-entry" />
+        <input type="textarea" id="body-entry" />
         <input type="submit" value="submit note" />
       </form>
       
