@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Note Entry Mockup</title>
+
+    <script src="frameworks/jquery-1.6.2.js"></script>
+    <script src="frameworks/handlebars-1.0.0.beta.3.js"></script>
+    
+    <!-- application scripts -->
+    <script src="src/note.js"></script>
+    <script src="src/app.js"></script>
+  </head>
+
+  <body>
+
+    <script id="note-template" type="text/x-handlebars-template">
+    {{#each notes}}
+      <li class="note">
+        <span class="note-title"></span>
+        <span class="note-body"></span>
+      </li>
+    {{/each}}
+    </script>
+
+    <div id="wrapper">
+      
+      <h1 id="page-title">Notes</h1>
+      
+      <ul id="note-collection"></ul>
+      
+      <form id="note-entry">
+        <input type="text" id="title-entry" />
+        <input type="text" id="body-entry" />
+        <input type="submit" value="submit note" />
+      </form>
+      
+    </div>
+    
+  </body>
+</html>
