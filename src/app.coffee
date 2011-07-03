@@ -6,9 +6,13 @@ jQuery ->
   
   ($ '#note-entry').submit (event) ->
     event.preventDefault()
-    
-    note = new Note ($ '#title-entry', '#body-entry').val()   
+     
+    title = ($ '#title-entry').val()
+    body = ($ '#body-entry').val()
+    note = new Note(title, body)
     
     ($ 'ul#note-collection').html template note.toJSON()
-    ($ '#title-entry', '#body-entry').val ''
+    
+    ($ '#title-entry').val('')
+    ($ '#body-entry').val('')
     

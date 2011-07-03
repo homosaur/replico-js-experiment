@@ -5,11 +5,14 @@
     template = Handlebars.compile(source);
     ($('#title-entry')).focus();
     return ($('#note-entry')).submit(function(event) {
-      var note;
+      var body, note, title;
       event.preventDefault();
-      note = new Note(($('#title-entry', '#body-entry')).val());
+      title = ($('#title-entry')).val();
+      body = ($('#body-entry')).val();
+      note = new Note(title, body);
       ($('ul#note-collection')).html(template(note.toJSON()));
-      return ($('#title-entry', '#body-entry')).val('');
+      ($('#title-entry')).val('');
+      return ($('#body-entry')).val('');
     });
   });
 }).call(this);
